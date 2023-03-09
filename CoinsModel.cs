@@ -1,9 +1,8 @@
 using UnityEngine;
-using UnityEngine.Analytics;
 
-public class CoinsModel : MonoBehaviour
+public class CoinsModel 
 {
-    private CoinsDebugUIPresenter _coinsPresenter;
+    private Root _init;
 
     public int Amount;
 
@@ -25,8 +24,8 @@ public class CoinsModel : MonoBehaviour
 
         Amount -= price;
 
-        _coinsPresenter.Render.text = $"Coins: {Amount}";
-        _coinsPresenter.Animator.SetTrigger("OnPickupCoin");
+        _init.CoinsPresenter.Render.text = $"Coins: {Amount}";
+        _init.CoinsPresenter.Animator.SetTrigger("OnPickupCoin");
         PlayerPrefs.SetInt("Coins", Amount);
 
         return true;

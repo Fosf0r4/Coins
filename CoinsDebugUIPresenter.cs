@@ -6,17 +6,16 @@ public class CoinsDebugUIPresenter : MonoBehaviour
     [SerializeField] public Text Render;
     [SerializeField] public Animator Animator;
 
-    private CoinsModel _model;
+    private Root _init;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.Contains("Coin"))
         {
-            _model.OnPickupCoin();
+            _init.CoinsModel.OnPickupCoin();
 
-            Render.text = $"Coins: {_model.Amount}";
+            Render.text = $"Coins: {_init.CoinsModel.Amount}";
             Animator.SetTrigger("OnPickupCoin");
-        }
-       
+        }  
     }
 }
